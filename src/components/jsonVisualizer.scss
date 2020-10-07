@@ -1,0 +1,75 @@
+@import "base-ui-framework.scss";
+
+.wix-code-json-visualizer {
+  $wix-code-console-message-font-family: "Menlo", "Monaco", "Vera Mono", monospace;
+  $wix-code-json-visualizer-arrow-width: 16px;
+  $wix-code-json-visualizer-label-color: #aa4dc8;
+  $wix-code-json-visualizer-value-color: #d0427d;
+  $wix-code-json-visualizer-color: #162d3d;
+
+  font-family: $wix-code-console-message-font-family;
+  font-size: 12px;
+  line-height: 18px;
+  color: #162d3d;
+
+  & .root {
+    display: inline-block;
+    & div {
+      display: inline-block;
+    }
+  }
+
+  & .clickable {
+    cursor: pointer;
+  }
+
+  & .arrow {
+    width: $wix-code-json-visualizer-arrow-width;
+    text-align: center;
+  }
+
+  & .arrow:after {
+    content: '▾';
+  }
+
+  & .arrow-collapsed {
+    transform: rotate(-90deg);
+  }
+
+  & .transparent {
+    color: transparent;
+  }
+
+  & .label {
+    white-space: pre-wrap;
+    color: $wix-code-json-visualizer-label-color;
+  }
+
+  & .preview-value {
+    color: $wix-code-json-visualizer-value-color;
+  }
+
+  & .values {
+    padding-left: 12px;
+  }
+
+  & .view {
+    margin-left: 10px;
+    display: inline-block;
+  }
+
+  & .view > .tab.selected {
+    background-color: $g-color-b2;
+    color: white;
+    cursor: auto;
+  }
+
+  & .view > .tab {
+    background-color: $g-color-b2x;
+    color: $g-color-d2;
+    padding: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}

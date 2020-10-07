@@ -1,0 +1,1348 @@
+@charset "UTF-8";
+// ** Editor styling globals **
+
+//https://assets.adobe.com/link/f632879a-2329-4f27-883a-95871199d761?section=activity_public
+//use with font-family css property.
+$fonts-fallback: HelveticaNeueW31, Helvetica Neue, Helvetica, Arial, メイリオ, meiryo, ヒラギノ角ゴ pro w3, hiragino kaku gothic pro, sans-serif;
+
+// EK-347: `WixMadeforText*` fonts are loaded via `src/hoc/madeforExperiment.js` file
+$g-font-consolas: Consolas, $fonts-fallback;
+$g-font75: WixMadeforText_W_XBd, HelveticaNeueW01-75Bold, HelveticaNeueW02-75Bold, HelveticaNeueW10-75Bold, $fonts-fallback;
+$g-font65: WixMadeforText_W_Bd, HelveticaNeueW01-65Medi, HelveticaNeueW02-65Medi, HelveticaNeueW10-65Medi, $fonts-fallback;
+$g-font55: WixMadeforText_W_Rg, HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, $fonts-fallback;
+$g-font45: WixMadeforText_W_Rg, HelveticaNeueW01-45Ligh, HelveticaNeueW02-45Ligh, HelveticaNeueW10-45Ligh, $fonts-fallback;
+$g-google-preview-font: Arial, sans-serif;
+
+
+@mixin g-font-f01() {
+  font-family: $g-font55;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f02() {
+  font-family: $g-font45;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f03() {
+  font-family: $g-font45;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f04() {
+  font-family: $g-font55;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+//g-font-f05 is identical to g-font-f04
+
+@mixin g-font-f06() {
+  font-family: $g-font45;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f07() {
+  font-family: $g-font55;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f08() {
+  font-family: $g-font55;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+//g-font-f09 is identical to g-font-f07
+
+@mixin g-font-f10() {
+  font-family: $g-font45;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f11() {
+  font-family: $g-font65;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f12() {
+  font-family: $g-font55;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f13() {
+  font-family: $g-font45;
+  font-size: 30px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f14() {
+  font-family: $g-font45;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f15() {
+  font-family: $g-font45;
+  font-size: 20px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f16() {
+  font-family: $g-font55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f17() {
+  font-family: $g-font65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-font-f18() {
+  font-family: $g-font65;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Google Preview fonts (It's not a part of Editor fonts)
+@mixin g-google-preview-title() {
+  font-family: $g-google-preview-font;
+  font-size: 18px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-google-preview-url() {
+  font-family: $g-google-preview-font;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin g-google-preview-description() {
+  font-family: $g-google-preview-font;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ** Editor styling globals **
+
+// Please *DO NOT* add anything which isnt in:
+// https://assets.adobe.com/link/9ed10e8a-8c78-489c-b248-dd65bcf121e1?section=extract
+
+//Main Colors (B for Blue)
+$g-color-b1: #3899ec;
+//Main Action Color, Active, Buttons
+$g-color-b2: #4eb7f5;
+//Hover for elements with color B1
+$g-color-b3: #7fccf7;
+//Hover for elements with color B4
+$g-color-b4: #d3edff;
+//Rollover color for elements with fill color D5
+$g-color-b5: #eaf7ff;
+//BG for less priority buttons, skins
+$g-color-b6: #598bdf;
+//font color for blue component label
+
+//Dark Colors (D for Dark)
+$g-color-d1: #162d3d;
+//Main Input Text, Titles
+$g-color-d2: #2b5672;
+//Titles
+$g-color-d3: #7a92a5;
+//Default Text, Less Important text
+$g-color-d4: #d9e1e8;
+//Dividers, Dummy text
+$g-color-d5: #f0f3f5;
+//Section Dividers BG
+$g-color-d6: #fff;
+//White
+$g-color-d7: #000000;
+
+//Disabled Colors
+$g-color-x1: #7a7a7a;
+$g-color-x2: #939393;
+$g-color-x3: #bcbcbc;
+
+//for D colors (X for disabled)
+$g-color-d1x: #7a7a7a;
+$g-color-d2x: #939393;
+$g-color-d3x: #bcbcbc;
+$g-color-d4x: #ececec;
+$g-color-d5x: #f0f0f0;
+
+//for B colors (X for disabled)
+$g-color-b1x: #bcbcbc;
+$g-color-b2x: #c8c8c8;
+$g-color-b3x: #d5d5d5;
+$g-color-b4x: #e2e2e2;
+$g-color-b5x: #f0f0f0;
+
+//Extra colors (E for Extra)
+$g-color-e1: #2b81cb;
+//Blue Header fill color BT(?, X)
+$g-color-e2: #0d487f;
+//Blue header BT hover (?, X)
+$g-color-e3: rgba(255, 255, 255, 0.96);
+//Tooltips BG
+$g-color-e4: #2d4150;
+//Main Editor icons
+$g-color-e5: #b1ddf8;
+//Toggle off color and search bg
+$g-color-e6: #b6c1cd;
+//placeholder text
+$g-color-e7: #5effff;
+//boundering box, guides, anchor
+$g-color-e8: #18d2de;
+//attached to content
+$g-color-e9: #0a6363;
+//content inside anchors
+$g-color-e10: #42c5bf;
+//Ecommerce Color
+$g-color-e11: #d0427d;
+//App Market Color
+$g-color-e12: #c3504d;
+//Red Header fill color BTN (? X)
+$g-color-e13: #942b28;
+//verticalTabs BG color
+$g-color-e14: #f7fbff;
+
+$g-color-e15: #2b6b9e;
+$g-color-e16: #bf5727;
+
+//Disabled colors for E (X for disabled)
+$g-color-e1x: #a7a7a7;
+$g-color-e2x: #898989;
+$g-color-e3x: rgba(255, 255, 255, 0.96);
+$g-color-e4x: #8a8a8a;
+$g-color-e5x: #e3e3e3;
+$g-color-e6x: #cacaca;
+$g-color-e7x: #e0e0e0;
+$g-color-e8x: #c9c9c9;
+$g-color-e9x: #ababab;
+$g-color-e10x: #cecece;
+$g-color-e11x: #cfcfcf;
+
+//** Wix primary colors (buttons) **
+
+//Wix Premium (P for Purple / Premium)
+$g-color-p1: #aa4dc8;
+// Default/Active color
+$g-color-p2: #bb71d3;
+// Hover Color
+$g-color-p3: #e5c9ee;
+$g-color-p4: #eedbf4;
+//connected component background color
+$g-color-p5: #811455;
+$g-color-p6: #c91c90;
+
+
+//Approval (G for green)
+$g-color-g1: #60bc57;
+// Default/Active color
+$g-color-g2: #80c979;
+// Hover Color
+$g-color-g3: #cfebcc;
+$g-color-g4: #dff2dd;
+
+//O for orange
+$g-color-o1: #fb7d33;
+// Default/Active color
+$g-color-o2: #fc975c;
+// Hover Color
+$g-color-o3: #fed8c1;
+$g-color-o4: #fee5d6;
+// Show on all pages label backgroung color
+$g-color-o5: #eba554;
+
+//Y for Yellow
+$g-color-y1: #ffc233;
+// Default/Active color
+$g-color-y2: #ffce5c;
+// Hover Color
+$g-color-y3: #ffedc1;
+$g-color-y4: #fff3d6;
+
+//Errors (R for Red)
+$g-color-r1: #ee5951;
+// Default/Active color
+$g-color-r2: #f1726b;
+// Hover Color
+$g-color-r3: #facdca;
+$g-color-r4: #fce6e5;
+
+// Stage colors
+$g-color-s1: #18d9c2;
+$g-color-s2: #ff60f9;
+$g-color-s3: #c262ff;
+$g-color-s4: #ffd754;
+
+// Please *DO NOT* add anything which isnt in:
+// https://assets.adobe.com/link/9ed10e8a-8c78-489c-b248-dd65bcf121e1?section=extract
+//otherwise it is not part of the palette
+
+// Google Preview font colors (It's not a part of Editor colors)
+$g-color-google-preview-title: #1a0dab;
+$g-color-google-preview-url: #006621;
+$g-color-google-preview-description: #545454;
+
+//** preview frame globals
+$g-zoom-mode-preview-top: 37px;
+$g-mobile-preview-top: 59px;
+$g-mobile-preview-margin-from-bottom: 94px;
+$g-mobile-preview-max-height: 512px;
+
+//** Top Bar Globals
+$g-top-bar-height: 48px;
+$g-top-bar-banner-height: 30px;
+$g-top-height-when-tools-hidden: 6px;
+$g-top-offset-when-tools-hidden: calc(#{$g-top-height-when-tools-hidden} - var(--g-top-bar-height));
+$g-top-bar-with-banner-height: calc(#{$g-top-bar-banner-height} + var(--g-top-bar-height));
+
+// Z index
+$g-zindex-editor-wrapper: 0;
+$g-zindex-handle-resize-corner: 1;
+$g-zindex-new-tooltip-add-panel: 1;
+$g-zindex-snap-layer: 100;
+$g-zindex-rulers-guide-handler: 150;
+$g-zindex-rulers-separator-blocker: 160;
+$g-zindex-left-bar-button: 1050;
+$g-zindex-tool-bar: 1055;
+$g-zindex-gfpp: 1058;
+$g-zindex-interaction-mode-bar: 1059;
+$g-zindex-left-bar-button-hovered: 1060;
+$g-zindex-wix-code-ide: 1071;
+$g-zindex-wix-code-ide-splitter: 1070;
+$g-zindex-wix-code-left-pane: 1072;
+$g-zindex-wix-left-bar-splitter: 1500;
+$g-zindex-right-pane: 1085;
+$g-zindex-section-reorganize: 1099;
+$g-zindex-left-panel-frame: 1105;
+$g-zindex-left-bar-button-selected: 1150;
+$g-zindex-left-panel-sub-panel-frame: 1200;
+$g-zindex-first-time-steps-bubble: 1253;
+$g-zindex-page-settings: 1254;
+$g-zindex-panels-layer: 1300;
+$g-zindex-comp-panel-frame: 1310;
+$g-zindex-tpa-settings-panel-frame: 1320;
+$g-zindex-add-panel-draggable-item-frame: 1350;
+$g-zindex-wix-code-ide-above-editor: 1440;
+$g-zindex-pages-menu: 1445;
+$g-zindex-right-click-menu: 1446;
+$g-zindex-section-live-site: 1447;
+$g-zindex-top-bar-dynamic-pages-combo-box: 1448;
+$g-zindex-notification: 1449;
+$g-zindex-top-bar: 1450;
+$g-zindex-top-bar-hide-tools: 1500;
+$g-zindex-top-bar-zoom-bar: 1510;
+$g-zindex-tool-panel: 1710;
+$g-zindex-notification-panel-frame: 1710;
+$g-zindex-focus-panel-frame: 1710;
+$g-zindex-help-panel-frame: 1720;
+$g-zindex-save-publish-panel: 1730;
+$g-zindex-how-to-video-player: 1740;
+$g-zindex-message-panel-frame: 1719;
+$g-zindex-confirmation-panel-frame: 1719;
+$g-zindex-combobox-list: 1810;
+$g-zindex-editor-search-overlay: 1821;
+$g-zindex-editor-search-panel: 1822;
+$g-zindex-dropdown: 5998;
+$g-zindex-tooltip: 5999;
+$g-zindex-editor-hints: 6000;
+$g-zindex-media-manager: 6001;
+// do not add zIndex which are greater than 10000
+
+$g-left-bar-relative-top: 32px;
+$g-left-bar-margin: 12px;
+$g-left-bar-button-size: 48px;
+$g-left-bar-abs-top: $g-top-bar-height + $g-left-bar-relative-top;
+
+//** Left Panels
+$g-left-panels-left: $g-left-bar-margin * 2 + $g-left-bar-button-size - 2;
+$g-left-panels-top: $g-top-bar-height + $g-left-bar-relative-top;
+$g-left-panels-relative-top: $g-left-bar-relative-top;
+
+//** Panels
+$g-panel-header-height: 54px;
+$g-left-panel-max-height: calc(100vh - var(--g-top-bar-height) - #{2 * $g-left-bar-relative-top});
+
+//** Popups
+$g-popup-width-medium: 504px;
+
+@function g-panel-max-content-height($header-height) {
+  @return calc(100vh - #{$g-left-panels-top + $g-left-bar-relative-top + $header-height});
+}
+
+//** Common
+$g-tag-triangle-size: 10px;
+$g-panels-border-radius: 8px;
+$g-preloader-width: 30px;
+$g-preloader-height: 30px;
+
+$g-section-reorganize-strip-width: 24px;
+
+$g-hide-tools-in-duration: 0.6s;
+$g-hide-tools-out-duration: 0.4s;
+$g-half-opacity-tools-duration: 0.4s;
+
+$g-focus-frame-border-width: 3px;
+
+$g-rulers-width: 22px;
+
+@function g-ease-in-out-cubic() {
+  @return cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+:root {
+  #{--g-top-bar-height}: #{$g-top-bar-height};
+}
+
+@charset "UTF-8";
+
+// This file deals with auto-prefixer exceptions. Hence vendor prefix scss-lint rule is disabled:
+// scss-lint:disable VendorPrefix
+
+//tap-hightlight-color isn't prefixed by autoprefixer
+@mixin tap-highlight-color($val) {
+  -webkit-tap-highlight-color: unquote($val);
+}
+
+//user-drag isn't prefixed by autoprefixer
+@mixin user-drag($val) {
+  -webkit-user-drag: unquote($val);
+  -moz-user-drag: unquote($val);
+  -ms-user-drag: unquote($val);
+  user-drag: unquote($val);
+}
+
+//user-modify isn't prefixed by autoprefixer
+@mixin user-modify($val) {
+  -webkit-user-modify: unquote($val);
+  -moz-user-modify: unquote($val);
+  -ms-user-modify: unquote($val);
+  user-modify: unquote($val);
+}
+
+//https://github.com/postcss/autoprefixer#why-doesnt-autoprefixer-support-appearance
+//https://github.com/postcss/autoprefixer/issues/43
+@mixin appearance($val) {
+  -webkit-appearance: unquote($val);
+  -moz-appearance: unquote($val);
+}
+
+@mixin user-select($val) {
+  -moz-user-select: $val;
+  -webkit-user-select: $val;
+  -ms-user-select: $val;
+  user-select: $val;
+}
+
+@mixin font-smoothing($value: on) {
+  //http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin cursor($value) {
+  $property: cursor;
+  // sass-lint:disable no-duplicate-properties
+  #{$property}: -webkit-#{$value};
+  #{$property}: -moz-#{$value};
+  #{$property}: #{$value};
+  // sass-lint:enable no-duplicate-properties
+}
+
+@mixin margin-end($margin) {
+  -webkit-margin-end: $margin;
+  -moz-margin-end: $margin;
+  -o-margin-end: $margin;
+  margin-end: $margin;
+}
+
+@mixin margin-before($margin) {
+  -webkit-margin-before: $margin;
+  -moz-margin-before: $margin;
+  -o-margin-before: $margin;
+  margin-before: $margin;
+}
+
+@mixin margin-after($margin) {
+  -webkit-margin-after: $margin;
+  -moz-margin-after: $margin;
+  -o-margin-after: $margin;
+  margin-after: $margin;
+}
+
+@mixin margin-start($margin) {
+  -webkit-margin-start: $margin;
+  -moz-margin-start: $margin;
+  -o-margin-start: $margin;
+  margin-start: $margin;
+}
+
+@mixin padding-start($padding) {
+  -webkit-padding-start: $padding;
+  -moz-padding-start: $padding;
+  -o-padding-start: $padding;
+  padding-start: $padding;
+}
+
+@mixin padding-end($padding) {
+  -webkit-padding-end: $padding;
+  -moz-padding-end: $padding;
+  -o-padding-end: $padding;
+  padding-end: $padding;
+}
+
+@function str-starts-with($string, $needle) {
+  //copied from https://github.com/HugoGiraudel/SassyStrings (UNMAINTAINED)
+  @return str-slice($string, 1, str-length($needle)) == $needle;
+}
+
+@function str-ends-with($string, $needle) {
+  //copied from https://github.com/HugoGiraudel/SassyStrings (UNMAINTAINED)
+  @return str-slice($string, -1 * str-length($needle)) == $needle;
+}
+
+@function str-trim($string) {
+  //copied from https://github.com/HugoGiraudel/SassyStrings (UNMAINTAINED)
+  $start: 1;
+  $end: str-length($string);
+
+  @for $i from 1 through str-length($string) {
+    $first: str-slice($string, $i, $i);
+    $last: str-slice($string, -$i, -$i);
+
+    @if $first == " " and $i + 1 == $start + 1 {
+      $start: $i + 1;
+    }
+
+    @if $last == " " and str-length($string) - $i == $end - 1 {
+      $end: str-length($string) - $i;
+    }
+  }
+
+  @return str-slice($string, $start, $end);
+}
+
+@function str-last-index($string, $needle) {
+  //copied from https://github.com/HugoGiraudel/SassyStrings (UNMAINTAINED)
+  $index: str-index($string, $needle);
+  $result: $index;
+
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $i;
+      }
+    }
+  }
+
+  @return $result;
+}
+
+@function list-join($list, $separator) {
+  $result: "";
+
+  @each $item in $list {
+    $result: $result + $item + $separator;
+  }
+
+  $result: str-slice($result, 1, -1 * str-length($separator));
+
+  @return $result;
+}
+
+
+@function create-attr-selector($name, $value, $relation: '=') {
+  @return unquote('[#{$name}#{$relation}"#{$value}"]');
+}
+
+@function append-selector($result, $selector-to-append) {
+  @return append($result, unquote("#{$selector-to-append}"), comma);
+}
+
+@function append-class-to-selector($selector, $class-name) {
+  @return set-nth($selector, 1, if($class-name, '.' + $class-name, '') + nth($selector, 1));
+}
+
+@function append-pseudo-to-selector($selector, $pseudo-class-name) {
+  @return set-nth($selector, 1, nth($selector, 1) + if($pseudo-class-name, ':' + $pseudo-class-name, ''));
+}
+
+@function append-attr-selector-to-selector($selector, $attr-selector) {
+  $first-part: nth($selector, 1);
+  $last-attr-selector-position: str-last-index($first-part, ']');
+  $first-part-with-attr-selector: if($last-attr-selector-position==null, $first-part + $attr-selector, str-insert($first-part, $attr-selector, $last-attr-selector-position + 1));
+
+  @return set-nth($selector, 1, $first-part-with-attr-selector);
+}
+
+@mixin when-root-has-all($class-names: (), $pseudo-class-names: (), $attr-selectors: ()) {
+  @at-root {
+    $multiple-selectors: ();
+
+    @each $selector in selector-parse(#{&}) {
+      $new-selector: $selector;
+
+      @each $class-name in $class-names {
+        $new-selector: append-class-to-selector($new-selector, $class-name);
+      }
+
+      @each $pseudo in $pseudo-class-names {
+        $new-selector: append-pseudo-to-selector($new-selector, $pseudo);
+      }
+
+      @each $attr-selector in $attr-selectors {
+        $new-selector: append-attr-selector-to-selector($new-selector, $attr-selector);
+      }
+
+      $multiple-selectors: append-selector($multiple-selectors, $new-selector);
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+@mixin when-root-has-any($class-names: (), $pseudo-class-names: (), $attr-selectors: ()) {
+  @at-root {
+    $multiple-selectors: ();
+
+    @each $selector in selector-parse(#{&}) {
+      @each $class-name in $class-names {
+        $multiple-selectors: append-selector($multiple-selectors, append-class-to-selector($selector, $class-name));
+      }
+
+      @each $pseudo in $pseudo-class-names {
+        $multiple-selectors: append-selector($multiple-selectors, append-pseudo-to-selector($selector, $pseudo));
+      }
+
+      @each $attr-selector in $attr-selectors {
+        $multiple-selectors: append-selector($multiple-selectors, append-attr-selector-to-selector($selector, $attr-selector));
+      }
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+@mixin when-root-has-class($class-name) {
+  @include when-root-has-all($class-name) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-classes($class-names) {
+  @include when-root-has-all($class-names) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-class($class-names) {
+  @include when-root-has-any($class-names) {
+    @content;
+  }
+}
+
+@mixin when-root-has-pseudo-class($pseudo-class) {
+  @include when-root-has-all((), $pseudo-class) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-pseudo-classes($pseudo-classes) {
+  @include when-root-has-all((), $pseudo-classes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-pseudo-classes($pseudo-classes) {
+  @include when-root-has-any((), $pseudo-classes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-attr($attribute) {
+  @include when-root-has-all((), (), $attribute) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-attrs($attributes) {
+  @include when-root-has-all((), (), $attributes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-attr($attributes) {
+  @include when-root-has-any((), (), $attributes) {
+    @content;
+  }
+}
+
+
+//parse a selector string to logical parts (attach selector relations to right hand)
+//similar to the webstorm breadcrumbs.
+//e.g
+//   ".parent > .child + .child2 .descendant"
+//will be parsed to:
+//  ".parent", "> .child", "+ .child2", ".descendant"
+@function selector-parse-to-parts($remaining) {
+  $delimiters: ('> ', '+ ', '~ ', ' '); //space must be last
+  $max-delimiter-length: 2;
+  $result: ();
+
+  $i: 0;
+  @while $i + $max-delimiter-length < str-length($remaining) {
+    $i: $i + 1;
+    $found: false; //no @break or @continue until SASS 4.0. So we need to implement it
+
+    @each $delimiter in $delimiters {
+      @if not $found {
+        //slice strings from the end (right) of the string, at the size of $i (increasing) plus the length of the delimiter.
+        $slice: str-slice($remaining, -1 * ($i + str-length($delimiter)));
+
+        //if the sliced string starts with a delimiter - append and break;
+        @if (str-starts-with($slice, $delimiter)) {
+          $found: true;
+          $result: join((str-trim($slice)), $result);
+          $remaining: str-slice($remaining, 1, -1 * (str-length($slice) + 1));
+          $i: 0;
+        }
+      }
+    }
+  }
+
+  $result: join((str-trim($remaining)), $result);
+  @return $result;
+}
+
+
+//specify pseudo class for a predecessor part of the selector.
+//e.g for: ".root > .input + .label > .text-label"
+//when styling inside .text-label, calling when-predecessor-has-pseudo(checked, 2) will refer to the selector:
+//".root > .input:checked + .label > .text-label"
+//similar to the breadcrumbs in webstorm
+@mixin when-ancestor-has-pseudo($pseudo-classes, $levels) {
+  $pseudos-to-append: '';
+
+  @each $pseudo in $pseudo-classes {
+    $pseudos-to-append: $pseudos-to-append + ':' + $pseudo;
+  }
+
+  @at-root {
+    $multiple-selectors: ();
+    @each $selector in selector-parse(#{&}) {
+      $parts: selector-parse-to-parts(list-join($selector, ' '));
+      $ancestor-index: length($parts) - $levels;
+      $selector-with-pseudo: set-nth($parts, $ancestor-index, nth($parts, $ancestor-index) + if($pseudos-to-append, $pseudos-to-append, ''));
+      $multiple-selectors: append-selector($multiple-selectors, $selector-with-pseudo);
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+//shorthand for parent (1 level up)
+@mixin when-parent-has-pseudo($pseudo-classes) {
+  @include when-ancestor-has-pseudo($pseudo-classes, 1) {
+    @content;
+  }
+}
+@function str-starts-with($string, $needle) {
+  @return str-slice($string, 1, str-length($needle)) == $needle;
+}
+
+@function str-trim($string) {
+  $start: 1;
+  $end: str-length($string);
+
+  @for $i from 1 through str-length($string) {
+    $first: str-slice($string, $i, $i);
+    $last: str-slice($string, -$i, -$i);
+
+    @if $first == " " and $i + 1 == $start + 1 {
+      $start: $i + 1;
+    }
+
+    @if $last == " " and str-length($string) - $i == $end - 1 {
+      $end: str-length($string) - $i;
+    }
+  }
+
+  @return str-slice($string, $start, $end);
+}
+
+@function str-last-index($string, $needle) {
+  $index: str-index($string, $needle);
+  $result: $index;
+
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $i;
+      }
+    }
+  }
+
+  @return $result;
+}
+
+@function list-join($list, $separator) {
+  $result: "";
+
+  @each $item in $list {
+    $result: $result + $item + $separator;
+  }
+
+  $result: str-slice($result, 1, -1 * str-length($separator));
+
+  @return $result;
+}
+
+@function append-selector($result, $selector-to-append) {
+  @return append($result, unquote("#{$selector-to-append}"), comma);
+}
+
+@function append-class-to-selector($selector, $class-name) {
+  @return set-nth($selector, 1, if($class-name, '.' + $class-name, '') + nth($selector, 1));
+}
+
+@function append-pseudo-to-selector($selector, $pseudo-class-name) {
+  @return set-nth($selector, 1, nth($selector, 1) + if($pseudo-class-name, ':' + $pseudo-class-name, ''));
+}
+
+@function append-attr-selector-to-selector($selector, $attr-selector) {
+  $first-part: nth($selector, 1);
+  $last-attr-selector-position: str-last-index($first-part, ']');
+  $first-part-with-attr-selector: if($last-attr-selector-position==null, $first-part + $attr-selector, str-insert($first-part, $attr-selector, $last-attr-selector-position + 1));
+
+  @return set-nth($selector, 1, $first-part-with-attr-selector);
+}
+
+@mixin when-root-has-all($class-names: (), $pseudo-class-names: (), $attr-selectors: ()) {
+  @at-root {
+    $multiple-selectors: ();
+
+    @each $selector in selector-parse(#{&}) {
+      $new-selector: $selector;
+
+      @each $class-name in $class-names {
+        $new-selector: append-class-to-selector($new-selector, $class-name);
+      }
+
+      @each $pseudo in $pseudo-class-names {
+        $new-selector: append-pseudo-to-selector($new-selector, $pseudo);
+      }
+
+      @each $attr-selector in $attr-selectors {
+        $new-selector: append-attr-selector-to-selector($new-selector, $attr-selector);
+      }
+
+      $multiple-selectors: append-selector($multiple-selectors, $new-selector);
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+@mixin when-root-has-any($class-names: (), $pseudo-class-names: (), $attr-selectors: ()) {
+  @at-root {
+    $multiple-selectors: ();
+
+    @each $selector in selector-parse(#{&}) {
+      @each $class-name in $class-names {
+        $multiple-selectors: append-selector($multiple-selectors, append-class-to-selector($selector, $class-name));
+      }
+
+      @each $pseudo in $pseudo-class-names {
+        $multiple-selectors: append-selector($multiple-selectors, append-pseudo-to-selector($selector, $pseudo));
+      }
+
+      @each $attr-selector in $attr-selectors {
+        $multiple-selectors: append-selector($multiple-selectors, append-attr-selector-to-selector($selector, $attr-selector));
+      }
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+@mixin when-root-has-class($class-name) {
+  @include when-root-has-all($class-name) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-classes($class-names) {
+  @include when-root-has-all($class-names) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-class($class-names) {
+  @include when-root-has-any($class-names) {
+    @content;
+  }
+}
+
+@mixin when-root-has-pseudo-class($pseudo-class) {
+  @include when-root-has-all((), $pseudo-class) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-pseudo-classes($pseudo-classes) {
+  @include when-root-has-all((), $pseudo-classes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-attr($attribute) {
+  @include when-root-has-all((), (), $attribute) {
+    @content;
+  }
+}
+
+//parse a selector string to logical parts (attach selector relations to right hand)
+//similar to the webstorm breadcrumbs.
+//e.g
+//   ".parent > .child + .child2 .descendant"
+//will be parsed to:
+//  ".parent", "> .child", "+ .child2", ".descendant"
+@function selector-parse-to-parts($remaining) {
+  $delimiters: ('> ', '+ ', '~ ', ' '); //space must be last
+  $max-delimiter-length: 2;
+  $result: ();
+
+  $i: 0;
+  @while $i + $max-delimiter-length < str-length($remaining) {
+    $i: $i + 1;
+    $found: false; //no @break or @continue until SASS 4.0. So we need to implement it
+
+    @each $delimiter in $delimiters {
+      @if not $found {
+        //slice strings from the end (right) of the string, at the size of $i (increasing) plus the length of the delimiter.
+        $slice: str-slice($remaining, -1 * ($i + str-length($delimiter)));
+
+        //if the sliced string starts with a delimiter - append and break;
+        @if (str-starts-with($slice, $delimiter)) {
+          $found: true;
+          $result: join((str-trim($slice)), $result);
+          $remaining: str-slice($remaining, 1, -1 * (str-length($slice) + 1));
+          $i: 0;
+        }
+      }
+    }
+  }
+
+  $result: join((str-trim($remaining)), $result);
+  @return $result;
+}
+
+
+//specify pseudo class for a predecessor part of the selector.
+//e.g for: ".root > .input + .label > .text-label"
+//when styling inside .text-label, calling when-predecessor-has-pseudo(checked, 2) will refer to the selector:
+//".root > .input:checked + .label > .text-label"
+//similar to the breadcrumbs in webstorm
+@mixin when-ancestor-has-pseudo($pseudo-classes, $levels) {
+  $pseudos-to-append: '';
+
+  @each $pseudo in $pseudo-classes {
+    $pseudos-to-append: $pseudos-to-append + ':' + $pseudo;
+  }
+
+  @at-root {
+    $multiple-selectors: ();
+    @each $selector in selector-parse(#{&}) {
+      $parts: selector-parse-to-parts(list-join($selector, ' '));
+      $ancestor-index: length($parts) - $levels;
+      $selector-with-pseudo: set-nth($parts, $ancestor-index, nth($parts, $ancestor-index) + if($pseudos-to-append, $pseudos-to-append, ''));
+      $multiple-selectors: append-selector($multiple-selectors, $selector-with-pseudo);
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+//shorthand for parent (1 level up)
+@mixin when-parent-has-pseudo($pseudo-classes) {
+  @include when-ancestor-has-pseudo($pseudo-classes, 1) {
+    @content;
+  }
+}
+
+
+@mixin distribute-width-evenly($sibling-selector, $max-columns-number) {
+  @for $i from 1 through $max-columns-number {
+    //given there are between 1 to n labels, auto-set width accordingly
+    &:first-child:nth-last-child(#{$i}),
+    &:first-child:nth-last-child(#{$i}) ~ #{$sibling-selector} {
+      width: 100% / $i;
+    }
+  }
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@function contains($haystack, $needle) {
+  @return not not index($haystack, $needle);
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin offsets($top, $left: $top, $bottom: $top, $right: $top) {
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin abs-distance($distance: 0) {
+  position: absolute;
+  @include offsets($distance);
+}
+
+@mixin abs-distances($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: absolute;
+  @include offsets($top, $right, $bottom, $left);
+}
+
+@mixin vertical-centering($height) {
+  top: calc(50% - #{$height/2}px);
+}
+
+@mixin max-two-line-label($composite-right-padding: 24px, $label-min-right-padding: 42px) {
+  width: calc(100% - (#{$label-min-right-padding} - #{$composite-right-padding}));
+  max-height: 36px;
+  overflow: hidden;
+  display: block;
+}
+
+@mixin max-in-a-row($children-class-name, $horizontal-space: 12px, $vertical-space: 12px, $vertical-space-from-label: 16px, $root-selector: null) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .#{$children-class-name} {
+    //set the width of every radio item according to the max allowed in each row.
+    @for $items-in-a-row from 1 through 5 {
+      @include when-root-has-attr('[data-max-items-per-row="#{$items-in-a-row}"]') {
+        width: calc((100% - (#{$horizontal-space} * (#{$items-in-a-row} - 1))) / #{$items-in-a-row});
+
+        //set the right margin for items that are not last in their rows, or absolute lasts
+        #{ if($root-selector, $root-selector, '')} &:not(:nth-child(#{$items-in-a-row}n)):not(:last-child) {
+          margin-right: $horizontal-space;
+        }
+
+        //set the top margin top for items that are not in the first row
+        #{ if($root-selector, $root-selector, '')} &:nth-child(#{$items-in-a-row}n) ~ .#{$children-class-name} {
+          margin-top: $vertical-space;
+        }
+      }
+      @include when-root-has-all(with-label, (), '[data-max-items-per-row="#{$items-in-a-row}"]') {
+        //set the top margin top for items with label and that are not in the first row
+        #{ if($root-selector, $root-selector, '')} &:nth-child(#{$items-in-a-row}n) ~ .#{$children-class-name} {
+          margin-top: $vertical-space-from-label;
+        }
+      }
+    }
+  }
+}
+
+@mixin max-in-a-row-with-force-break($children-class-name, $horizontal-space: 12px, $vertical-space: 12px, $vertical-space-from-label: 16px) {
+
+  @include max-in-a-row($children-class-name, $horizontal-space, $vertical-space, $vertical-space-from-label);
+
+  //set the top margin top for sections created from force break, except for the first one
+  &:not(:first-child) {
+    margin-top: $vertical-space;
+  }
+}
+
+@mixin fixed-ratio {
+  position: relative;
+  display: block; // padding: 50%; won't work for flex in Firefox
+
+  // Aspect ratio - 1/1
+  &::before {
+    display: inline-block;
+    content: '';
+    padding: 50%;
+    vertical-align: -webkit-baseline-middle;
+  }
+}
+
+@mixin checkerboard-background($height, $color, $background-color: #fff) {
+  background-image: linear-gradient(45deg, $color 26%, transparent 26%, transparent 74%, $color 74%, $color),
+  linear-gradient(45deg, $color 26%, transparent 26%, transparent 74%, $color 74%, $color);
+  background-size: 2*$height 2*$height;
+  background-position: 0 0, $height $height, $height $height, 0 0;
+  background-color: $background-color;
+}
+
+//** Left Bar
+// prettier-ignore
+$g-left-bar-button-list: (
+  // className                        color      top (symbol)     left (symbol)
+  pages-panel-pp                     #00aaaf       12px             12px,
+  theme-panel                        $g-color-e2    7px              8px,
+  bg-panel                           #f8a239       12px             12px, // y1
+  add-panel                          #3899ec       11px             11px, // b1
+  app-market-panel                   #d0427c       12px             12px, // e10
+  app-market-panel-20                #d0427c       12px             12px, // e10
+  app-market-panel-new               #d0427c       12px             12px, // e10
+  app-market-panel-no-header         #d0427c       12px             12px, // e10
+  my-uploads-panel                   #fa7c33       13px             11px, // o1
+  media-manager-panel                #fa7c33       13px             11px,
+  media-manager-panel-icon-b         #fa7c33       11px             11px, // o1
+  media-manager-panel-icon-c         #fa7c33       13px             13px, // o1
+  wix-data-panel                     #00A65F       12px             14px, // o1
+  wix-data-panel-icon-b              #00A65F       12px             12px, // o1
+  interactions-hidden-components     #d0427c       13px             11px,
+  blog-panel                         $g-color-g1   13px             10px, // g1
+  new-blog-panel                     #faad4d        9px             15px, // g1
+  shoutout-panel                     #ffc233       13px             10px, // y1
+  wix-store-panel                    #00adf5        9px             13px, // e11
+  wix-bookings-panel                 #6C48EF        9px             11px,
+  hidden-items-panel                 #d0427d       13px             11px,
+  mobile-elements-panel              #3899eb       11px             12px,
+  layout-optimizer-panel             #45c8c1       13px             13px,
+  ascend-panel                       #1463DA       11px             11px
+);
+
+@function get-multi-line-height($line-height, $line-quantity, $padding-top, $padding-bottom) {
+  @return $line-height * $line-quantity + $padding-top + $padding-bottom;
+}
+
+@mixin multiline-textarea($line-height, $line-quantity-collapsed, $line-quantity-expanded, $padding-top, $padding-bottom) {
+  height: get-multi-line-height($line-height, $line-quantity-collapsed, $padding-top, $padding-bottom);
+  line-height: $line-height;
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+
+  &:focus {
+    overflow: auto;
+    height: get-multi-line-height($line-height, $line-quantity-expanded, $padding-top, $padding-bottom);
+  }
+}
+
+//SVG Mixins:
+//control-button2 is the better button implementation.
+//will be renamed to control-button once all existing control-button will be migrated
+$button-control-class: control-button2;
+
+@mixin button-up($name, $part: null) {
+  .#{$button-control-class}.#{$name} #{if($part, '.' + $part, '')} {
+    @content;
+  }
+}
+
+@mixin button-hover($name, $part: null) {
+  .#{$button-control-class}.#{$name}:hover #{if($part, '.' + $part, '')} {
+    @content;
+  }
+}
+
+@mixin button-down($name, $part: null) {
+  .#{$button-control-class}.#{$name}:active #{if($part, '.' + $part, '')} {
+    @content;
+  }
+}
+
+@mixin button-disabled($name, $part: null) {
+  @if $part {
+    .#{$button-control-class}.#{$name} input:disabled #{if($part, '~ .' + $part, '')} {
+      @content;
+    }
+  } @else {
+    .#{$button-control-class}.#{$name}[disabled] {
+      @content;
+    }
+  }
+}
+
+//mixins for defining a two-state (or indeterminate tri-state) controls.
+//e.g: toggle, checkbox, mandatory, thumbnails icons, etc
+
+// ********** SYNTAX **********
+// toggle-<regular || selected || indeterminate>-<up || hover || down || disabled>
+
+// ********** PARAMETERS **********
+//$name: the name of the svg file (the symbol name)
+//$part: optionaL. defaults to "symbol", but it can be any other predefined toggle part.
+
+// ********** EXAMPLES **********
+// 1) passing ("checkbox") will apply css for ".control-checkbox .symbol-checkbox {...}". the $part parameter defaults to "symbol".
+// 2) passing ("checkbox", "label") will apply css for ".control-checkbox .label-checkbox {...}"
+// 3) passing ("my-boolean-control, "something-else") will generate an error.
+
+@mixin verify-toggle-part-param($part) {
+  @if not contains(input label class symbol info, $part) {
+    @error "invalid $part param for styling: '" + $part + "', please specify 'input', 'label', 'class' or default to 'symbol'";
+  }
+  @content;
+}
+
+@mixin toggle-regular-up($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .#{$part}-#{$name},
+    .control-#{$name} .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-regular-hover($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name}:hover .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-regular-down($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name}:active .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-regular-disabled($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name} .input-#{$name}:disabled ~ .#{$part}-#{$name} {
+      pointer-events: none;
+      @content;
+    }
+  }
+}
+
+@mixin toggle-selected-up($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .selected .#{$part}-#{$name},
+    .control-#{$name} .input-#{$name}:checked ~ .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-selected-hover($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name}:hover .input-#{$name}:not(:disabled):checked ~ .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-selected-down($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name}:active .input-#{$name}:checked ~ .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-selected-disabled($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name} .input-#{$name}:checked:disabled ~ .#{$part}-#{$name} {
+      pointer-events: none;
+      @content;
+    }
+  }
+}
+
+@mixin toggle-indeterminate-up($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name} .input-#{$name}[data-indeterminate="true"] ~ .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-indeterminate-hover($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name}:hover .input-#{$name}[data-indeterminate="true"] ~ .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-indeterminate-down($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name}:active .input-#{$name}[data-indeterminate="true"] ~ .#{$part}-#{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin toggle-indeterminate-disabled($name, $part: symbol) {
+  @include verify-toggle-part-param($part) {
+    .control-#{$name} .input-#{$name}[data-indeterimnate="true"]:disabled ~ .#{$part}-#{$name} {
+      pointer-events: none;
+      @content;
+    }
+  }
+}
+
+@mixin symbol-up($names...) {
+  $compound-selector: ();
+  @each $name in $names {
+    $compound-selector: append($compound-selector, unquote(".symbol-#{$name}"), comma);
+  }
+
+  #{$compound-selector} {
+    @content;
+  }
+}
+
+@mixin symbol-hover($names...) {
+  @include symbol-up($names...) {
+    @include when-root-has-all-pseudo-classes(hover) {
+      @content;
+    }
+  }
+}
+
+@mixin symbol-down($names...) {
+  @include symbol-up($names...) {
+    @include when-root-has-all-pseudo-classes(active) {
+      @content;
+    }
+  }
+}

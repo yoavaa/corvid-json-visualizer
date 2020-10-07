@@ -1,4 +1,6 @@
 @import 'styles/colors.scss';
+@import "base-ui-framework.scss";
+@import "jsonVisualizer.scss";
 
 .App {
   color: $white;
@@ -29,3 +31,109 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.wix-code-console-message {
+  display: flex;
+  justify-content: space-between;
+  color: $g-color-d1;
+  $wix-code-console-message-font-family: " Menlo", "Monaco", "  Vera Mono", monospace;
+  font-family: $wix-code-console-message-font-family;
+  line-height: 21px;
+  font-size: 12px;
+  font-weight: 400;
+
+  >.message-and-icon {
+    text-align: left;
+    display: flex;
+    padding-left: 6px;
+    justify-content: space-between;
+    vertical-align: top;
+
+    > .message {
+      overflow: hidden;
+      word-wrap: break-word;
+      word-break: break-all;
+      width: 100%;
+      padding-left: 6px;
+      padding-top: 2px;
+
+      * {
+        @include user-select(text);
+      }
+
+      > .message-part {
+        display: inline-block;
+        vertical-align: top;
+
+        > .message-part-content {
+          display: inline-block;
+          white-space: pre-wrap;
+        }
+
+        > .clickable {
+          color: $g-color-b1;
+          cursor: pointer;
+        }
+      }
+    }
+
+    > .icon {
+      padding-top: 3px;
+      vertical-align: top;
+      text-align: center;
+      min-width: 16px;
+      min-height: 16px;
+      max-height: 20px;
+    }
+  }
+
+  &.error >.message-and-icon {
+    color: #e52f25;
+  }
+
+  &.error {
+    background: $g-color-r4;
+    border-top: solid 1px $g-color-r3;
+  }
+
+  &.warning {
+    background: $g-color-y4;
+    border-top: solid 1px #fae9aa;
+  }
+
+  > .origin {
+    padding-top: 2px;
+    display: flex;
+    margin-left: 12px;
+
+    > .origin-icon {
+      margin-right: 4px;
+      margin-top: 2px;
+      height: 12px;
+      width: 12px;
+    }
+
+    > .file {
+      width: 120px;
+      margin-right: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    > .line {
+      width: 70px;
+      text-align: right;
+      margin-right: 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      > .clickable {
+        color: rgb(57, 153, 236);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
