@@ -1,8 +1,22 @@
 import _ from "lodash";
 
+export const TABLE_OBJECT = 'TO';
+export const TABLE_ARRAY_PRIMITIVE = 'AP';
+export const TABLE_ARRAY_OBJECT = 'AO';
+
+export function View(view, matrix) {
+  return {view, matrix}
+}
+
+export function toView(val) {
+  if (_.isArray(val))
+    return arrayToMatrixArray(val)
+  else
+    return objectToMatrix(val);
+}
 
 export function objectToMatrix(obj) {
-  return Object.entries(obj)
+  return [View(TABLE_OBJECT, Object.entries(obj))]
 }
 
 
@@ -31,17 +45,17 @@ export function arrayToMatrixArray(arr) {
 }
 
 function primitiveArrToMatrix(arr, indexOffset) {
-  return arr.map((val, index) => [index+indexOffset, val]);
+  return View(TABLE_ARRAY_PRIMITIVE, arr.map((val, index) => [index+indexOffset, val]));
 }
 
 function objectArrToMatrix(arr, indexOffset) {
   let fieldNames = extractAllFieldNames(arr);
   let matrix = [['index'].concat(fieldNames)];
-  return matrix.concat(
+  return View(TABLE_ARRAY_OBJECT, matrix.concat(
     arr.map((obj, index) =>
       [index+indexOffset].concat(
         fieldNames.map(field =>
-          field in obj?obj[field]:''))))
+          field in obj?obj[field]:'')))))
 }
 
 export function extractAllFieldNames(arr) {
