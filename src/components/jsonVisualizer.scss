@@ -72,4 +72,24 @@
     cursor: pointer;
     margin-right: 10px;
   }
+
+  & table {
+    margin: 0 5px;
+    border: 1px solid $g-color-d2x;
+    border-collapse: collapse;
+  }
+
+  & td {
+    border: 1px solid $g-color-d3x;
+  }
+
+  & .cell-value {
+    color: $wix-code-json-visualizer-value-color;
+    padding: 0 5px;
+  }
+
+  & .cell-value.label-cell {
+    color: $wix-code-json-visualizer-label-color;
+    border: 1px solid $g-color-d4x;
+  }
 }

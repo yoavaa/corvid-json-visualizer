@@ -291,7 +291,7 @@ const object = {
   "secretBase": "Super tower",
   "active": true,
 }
-
+const array2 = [true, false, null, undefined, 1, 2, 3, {a:1}, {a:2}];
 
 class App extends Component {
   render() {
@@ -313,6 +313,7 @@ class App extends Component {
                 <JsonVisualizer value={array}></JsonVisualizer>
                 <JsonVisualizer value={object}></JsonVisualizer>
                 <JsonVisualizer value={"string"}></JsonVisualizer>
+                <JsonVisualizer value={array2}></JsonVisualizer>
               </div>
             </div>
           </div>

@@ -1,9 +1,10 @@
 import "./jsonVisualizer.scss";
-import React from "react";
+import React, {Fragment} from "react";
 import classNames from "classnames";
 import _ from "lodash";
 import createReactClass from "create-react-class";
 import PropTypes from "prop-types";
+import {TABLE_ARRAY_OBJECT, TABLE_ARRAY_PRIMITIVE, TABLE_OBJECT, toView} from './jsonVisualizerUtil';
 
 const VIEW_JSON = 'vj';
 const VIEW_TABLE = 'vt';
@@ -20,13 +21,14 @@ const JsonTree = createReactClass({
       PropTypes.number,
       PropTypes.bool,
       PropTypes.oneOf([null])
-    ]).isRequired
+    ]).isRequired,
+    defaultView: PropTypes.oneOf(VIEW_JSON, VIEW_TABLE)
   },
 
   getInitialState() {
     return {
       collapsed: true,
-      view: VIEW_JSON
+      view: this.props.defaultView || VIEW_JSON
     };
   },
 
@@ -51,6 +53,25 @@ const JsonTree = createReactClass({
   },
 
   render() {
+
+    const isLabelCell = (view, row, column) => {
+      console.log(view.view, row, column)
+      return (column === 0) ||
+      (view.view === TABLE_ARRAY_OBJECT && row === 0)
+    }
+
+    const formatPrimitiveForJson = value =>
+      value === null ? 'null'
+        : value === undefined ? 'undefined'
+        : JSON.stringify(value)
+
+    const formatPrimitiveForTable = value =>
+      value === null ? 'null'
+        : value === undefined ? 'undefined'
+        : value === false ? 'false'
+        : value === true ? 'true '
+            : value
+
     const JsonTree = this.getJsonTreeClass();
 
     return (
@@ -88,27 +109,43 @@ const JsonTree = createReactClass({
           )}
           {!_.isObject(this.props.value) && (
             <span key="primitive-value" className="preview-value">
-              {this.props.value === "null"
-                ? "null"
-                : JSON.stringify(this.props.value)}
+              {formatPrimitiveForJson(this.props.value)}
             </span>
           )}
         </div>
-        {!this.state.collapsed && _.isObject(this.props.value) && (
+        {!this.state.collapsed && _.isObject(this.props.value) && <Fragment>
           <div className='view'>
             <span className={classNames({tab: true, selected: this.state.view === VIEW_JSON})} onClick={ev => this.changeView(ev, VIEW_JSON)}>json</span>
             <span className={classNames({tab: true, selected: this.state.view === VIEW_TABLE})} onClick={ev => this.changeView(ev, VIEW_TABLE)}>table</span>
           </div>
-        )}
-
-
-        {!this.state.collapsed && _.isObject(this.props.value) && (
-          <div key="json-children" className="values">
-            {Object.entries(this.props.value).map(pair => (
-              <JsonTree label={pair[0]} value={pair[1]} key={pair[0]} />
+          {this.state.view ===VIEW_JSON?(
+            <div key="json-children" className="values">
+              {Object.entries(this.props.value).map(pair => (
+                <JsonTree label={pair[0]} value={pair[1]} key={pair[0]} />
+              ))}
+            </div>
+          ):(<div>
+            {toView(this.props.value).map(view => (
+              <table>
+                <tbody>
+                {view.matrix.map((line, lineIndex) => (
+                  <tr>
+                    {line.map((cell, cellIndex) => (
+                      <td>{!_.isObject(cell)
+                        ? <span className={classNames({
+                          "cell-value": true,
+                          "label-cell": isLabelCell(view, lineIndex, cellIndex)})}>{formatPrimitiveForTable(cell)}</span>
+                        : <JsonTree value={cell} defaultView={VIEW_TABLE}/>
+                      }</td>
+                    ))}
+                  </tr>
+                ))}
+                </tbody>
+              </table>
             ))}
-          </div>
-        )}
+          </div>)}
+        </Fragment>}
+
       </div>
     );
   }
