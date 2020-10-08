@@ -50,7 +50,7 @@ function primitiveArrToMatrix(arr, indexOffset) {
 
 function objectArrToMatrix(arr, indexOffset) {
   let fieldNames = extractAllFieldNames(arr);
-  let matrix = [['index'].concat(fieldNames)];
+  let matrix = [['#'].concat(fieldNames)];
   return View(TABLE_ARRAY_OBJECT, matrix.concat(
     arr.map((obj, index) =>
       [index+indexOffset].concat(

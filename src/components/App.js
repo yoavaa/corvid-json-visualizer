@@ -298,21 +298,21 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Corvid Console Sandbox</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        'agagaer'
         <div className="wix-code-console-message">
           <div className="message-and-icon">
             <div className="message">
               <div className="message-part">
+                <div className="example-label">Mixed object</div>
                 <JsonVisualizer value={mixed}></JsonVisualizer>
+                <div className="example-label">Array</div>
                 <JsonVisualizer value={array}></JsonVisualizer>
+                <div className="example-label">Object</div>
                 <JsonVisualizer value={object}></JsonVisualizer>
+                <div className="example-label">A String</div>
                 <JsonVisualizer value={"string"}></JsonVisualizer>
+                <div className="example-label">Mixed Array</div>
                 <JsonVisualizer value={array2}></JsonVisualizer>
               </div>
             </div>

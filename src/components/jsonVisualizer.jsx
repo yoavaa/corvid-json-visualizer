@@ -4,7 +4,7 @@ import classNames from "classnames";
 import _ from "lodash";
 import createReactClass from "create-react-class";
 import PropTypes from "prop-types";
-import {TABLE_ARRAY_OBJECT, TABLE_ARRAY_PRIMITIVE, TABLE_OBJECT, toView} from './jsonVisualizerUtil';
+import {TABLE_ARRAY_OBJECT, toView} from './jsonVisualizerUtil';
 
 const VIEW_JSON = 'vj';
 const VIEW_TABLE = 'vt';

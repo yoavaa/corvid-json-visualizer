@@ -65,6 +65,14 @@
         display: inline-block;
         vertical-align: top;
 
+        > .example-label {
+          font-family: $wix-code-console-message-font-family;
+          font-size: 12px;
+          line-height: 18px;
+          color: #162d3d;
+          margin-top: 10px;
+          display: inline-block;
+        }
         > .message-part-content {
           display: inline-block;
           white-space: pre-wrap;
@@ -136,4 +144,6 @@
     }
   }
 }
+
+
 
