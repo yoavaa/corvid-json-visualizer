@@ -292,6 +292,60 @@ const object = {
   "active": true,
 }
 const array2 = [true, false, null, undefined, 1, 2, 3, {a:1}, {a:2}];
+const wixDataResult = {
+  "items": [{
+    "_id": "be827844-5911-4f44-a82b-f826a8000076",
+    "_owner": "c569b3d3-4d9b-4196-83ca-bb69f6d5684d",
+    "_createdDate": "2018-01-27T14:37:10.514Z",
+    "_updatedDate": "2018-01-27T14:40:07.688Z",
+    "title": "20 mille lieues sous l'hiver",
+    "newField": "image://v1/c569b3_604b8ca2eaa9421aacef8a006ed47814~mv2.png/187_190/turquoise.png",
+    "link-test-title": "/test/20-mille-lieues-sous-l'hiver"
+  }, {
+    "_id": "753ddc84-3705-4ca6-8c5d-b5a6ad0a6732",
+    "_owner": "c569b3d3-4d9b-4196-83ca-bb69f6d5684d",
+    "_createdDate": "2017-12-30T20:37:12.983Z",
+    "_updatedDate": "2017-12-30T20:37:18.450Z",
+    "title": "araergae",
+    "newField": "image://v1/c569b3_29217c63dcb2410996cdbb17df31aaeb~mv2.png/488_756/coffee-3b.png",
+    "link-test-title": "/test/araergae"
+  }, {
+    "_id": "8789c3fc-97c2-428f-b223-4d2e087c1fe5",
+    "_owner": "c569b3d3-4d9b-4196-83ca-bb69f6d5684d",
+    "_createdDate": "2017-12-30T20:37:05.529Z",
+    "_updatedDate": "2017-12-30T20:37:11.672Z",
+    "title": "agfdfadger",
+    "newField": "image://v1/c569b3_8d04bd4d38854ebd9a7722c82af80278~mv2.png/488_756/coffee-2b.png",
+    "link-test-title": "/test/agfdfadger"
+  }, {
+    "_id": "8b48bd48-2ca4-42ff-86ad-1e1f5b6dbd96",
+    "_owner": "c569b3d3-4d9b-4196-83ca-bb69f6d5684d",
+    "_createdDate": "2017-12-04T12:58:27.092Z",
+    "_updatedDate": "2017-12-30T20:37:00.476Z",
+    "title": "asdd",
+    "newField": "image://v1/c569b3_b3458b82a3fa47058b15dda13b8e07b0~mv2_d_1600_1345_s_2.jpg/1600_1345/car-toys-bg.jpg",
+    "link-test-title": "/test/asdd"
+  }, {
+    "_id": "e7bdc539-3400-4519-841e-eadcf74cf839",
+    "_owner": "c569b3d3-4d9b-4196-83ca-bb69f6d5684d",
+    "_createdDate": "2017-12-04T12:58:24.708Z",
+    "_updatedDate": "2017-12-30T20:37:03.307Z",
+    "title": "qwdqwd",
+    "newField": "image://v1/c569b3_d49a2ff8830f43ddb769f165f54a5cd5~mv2.jpg/718_559/0921-brad-pitt-getty-5.jpg",
+    "link-test-title": "/test/qwdqwd"
+  }],
+  "length": 5,
+  "totalCount": 5,
+  "query": {
+    "invalidArguments": [],
+    "filterTree": {},
+    "provider": {},
+    "collectionName": "test",
+    "limitNumber": 50,
+    "skipNumber": 0,
+    "included": []
+  }
+}
 
 class App extends Component {
   render() {
@@ -314,6 +368,8 @@ class App extends Component {
                 <JsonVisualizer value={"string"}></JsonVisualizer>
                 <div className="example-label">Mixed Array</div>
                 <JsonVisualizer value={array2}></JsonVisualizer>
+                <div className="example-label">Wix Data Result</div>
+                <JsonVisualizer value={wixDataResult}></JsonVisualizer>
               </div>
             </div>
           </div>
