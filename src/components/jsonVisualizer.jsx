@@ -97,7 +97,9 @@ const JsonTree = createReactClass({
           onClick={this.toggle}
           className={classNames({
             root: true,
-            clickable: _.isObject(this.props.value)
+            clickable: _.isObject(this.props.value),
+            "non-clickable-label": !_.isObject(this.props.value) && this.props.label,
+            "non-clickable-no-label": !_.isObject(this.props.value) && !this.props.label
           })}
         >
           <div

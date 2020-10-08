@@ -23,6 +23,14 @@
   & .clickable {
     cursor: pointer;
   }
+  & .non-clickable-label {
+    padding-left: 30px;
+    text-indent: -15px;
+  }
+  & .non-clickable-no-label {
+    padding-left: 15px;
+    text-indent: -15px;
+  }
 
   & .arrow {
     width: $wix-code-json-visualizer-arrow-width;

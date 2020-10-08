@@ -366,6 +366,8 @@ class App extends Component {
                 <JsonVisualizer value={object}></JsonVisualizer>
                 <div className="example-label">A String</div>
                 <JsonVisualizer value={"string"}></JsonVisualizer>
+                <div className="example-label">A long String</div>
+                <JsonVisualizer value={"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo"}></JsonVisualizer>
                 <div className="example-label">Mixed Array</div>
                 <JsonVisualizer value={array2}></JsonVisualizer>
                 <div className="example-label">Wix Data Result</div>
