@@ -9,6 +9,18 @@ import {TABLE_ARRAY_OBJECT, toView} from './jsonVisualizerUtil';
 const VIEW_JSON = 'vj';
 const VIEW_TABLE = 'vt';
 
+const formatPrimitiveForJson = value =>
+  value === null ? 'null'
+    : value === undefined ? 'undefined'
+    : JSON.stringify(value)
+
+const formatPrimitiveForTable = value =>
+  value === null ? 'null'
+    : value === undefined ? 'undefined'
+    : value === false ? 'false'
+      : value === true ? 'true '
+        : value
+
 const JsonTree = createReactClass({
   displayName: "JsonTree",
 
@@ -28,7 +40,8 @@ const JsonTree = createReactClass({
   getInitialState() {
     return {
       collapsed: true,
-      view: this.props.defaultView || VIEW_JSON
+      view: this.props.defaultView || VIEW_JSON,
+      copying: false
     };
   },
 
@@ -38,6 +51,23 @@ const JsonTree = createReactClass({
     //https://github.com/rommguy/react-custom-scroll/issues/42
     event.stopPropagation();
     this.setState({ collapsed: !this.state.collapsed });
+  },
+
+  copy() {
+    if (this.state.view === VIEW_JSON)
+      navigator.clipboard.writeText(JSON.stringify(this.props.value, undefined, 2))
+    else {
+      let tableToCopy = toView(this.props.value).map(view => {
+        return view.matrix.map(line => {
+          return line.map(value => !_.isObject(value)?formatPrimitiveForTable(value):JSON.stringify(value)).join('\t')
+        }).join('\n')
+      }).join('\n')
+      navigator.clipboard.writeText(tableToCopy)
+    }
+    this.setState({copying: true})
+    setTimeout(() => {
+      this.setState({copying: false})
+    }, 2500)
   },
 
   changeView(event, view) {
@@ -55,22 +85,9 @@ const JsonTree = createReactClass({
   render() {
 
     const isLabelCell = (view, row, column) => {
-      console.log(view.view, row, column)
       return (column === 0) ||
       (view.view === TABLE_ARRAY_OBJECT && row === 0)
     }
-
-    const formatPrimitiveForJson = value =>
-      value === null ? 'null'
-        : value === undefined ? 'undefined'
-        : JSON.stringify(value)
-
-    const formatPrimitiveForTable = value =>
-      value === null ? 'null'
-        : value === undefined ? 'undefined'
-        : value === false ? 'false'
-        : value === true ? 'true '
-            : value
 
     const JsonTree = this.getJsonTreeClass();
 
@@ -117,6 +134,7 @@ const JsonTree = createReactClass({
           <div className='view'>
             <span className={classNames({tab: true, selected: this.state.view === VIEW_JSON})} onClick={ev => this.changeView(ev, VIEW_JSON)}>json</span>
             <span className={classNames({tab: true, selected: this.state.view === VIEW_TABLE})} onClick={ev => this.changeView(ev, VIEW_TABLE)}>table</span>
+            <span className="copy" onClick={ev => this.copy(ev)}>{this.state.copying?"copied!":this.state.view === VIEW_JSON?"copy json":"copy table"}</span>
           </div>
           {this.state.view ===VIEW_JSON?(
             <div key="json-children" className="values">
@@ -125,13 +143,13 @@ const JsonTree = createReactClass({
               ))}
             </div>
           ):(<div>
-            {toView(this.props.value).map(view => (
-              <table>
+            {toView(this.props.value).map((view, index) => (
+              <table key={`json-table-${index}`}>
                 <tbody>
                 {view.matrix.map((line, lineIndex) => (
-                  <tr>
+                  <tr key={`line-${lineIndex}`}>
                     {line.map((cell, cellIndex) => (
-                      <td>{!_.isObject(cell)
+                      <td key={`cell-${lineIndex}-${cellIndex}`}>{!_.isObject(cell)
                         ? <span className={classNames({
                           "cell-value": true,
                           "label-cell": isLabelCell(view, lineIndex, cellIndex)})}>{formatPrimitiveForTable(cell)}</span>
