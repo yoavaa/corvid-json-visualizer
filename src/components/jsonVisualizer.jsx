@@ -8,6 +8,7 @@ import {TABLE_ARRAY_OBJECT, toView} from './jsonVisualizerUtil';
 
 const VIEW_JSON = 'vj';
 const VIEW_TABLE = 'vt';
+const supportsCopy = !!navigator.clipboard.writeText;
 
 const formatPrimitiveForJson = value =>
   value === null ? 'null'
@@ -136,7 +137,9 @@ const JsonTree = createReactClass({
           <div className='view'>
             <span className={classNames({tab: true, selected: this.state.view === VIEW_JSON})} onClick={ev => this.changeView(ev, VIEW_JSON)}>json</span>
             <span className={classNames({tab: true, selected: this.state.view === VIEW_TABLE})} onClick={ev => this.changeView(ev, VIEW_TABLE)}>table</span>
+            {supportsCopy && (
             <span className="copy" onClick={ev => this.copy(ev)}>{this.state.copying?"copied!":this.state.view === VIEW_JSON?"copy json":"copy table"}</span>
+            )}
           </div>
           {this.state.view ===VIEW_JSON?(
             <div key="json-children" className="values">
