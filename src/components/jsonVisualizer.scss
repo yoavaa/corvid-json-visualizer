@@ -6,6 +6,7 @@
   $wix-code-json-visualizer-label-color: #aa4dc8;
   $wix-code-json-visualizer-value-color: #d0427d;
   $wix-code-json-visualizer-color: #162d3d;
+  $wix-code-json-visualizer-copy-color: #3999ec;
 
   font-family: $wix-code-console-message-font-family;
   font-size: 12px;
@@ -69,6 +70,13 @@
     color: $g-color-d2;
     padding: 0 5px;
     border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  & .view > .copy {
+    color: $wix-code-json-visualizer-copy-color;
+    padding: 0 5px;
     cursor: pointer;
     margin-right: 10px;
   }
